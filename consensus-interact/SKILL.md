@@ -36,7 +36,7 @@ If you’re using the standalone npm CLI, the binary is:
 
 The subcommand shapes are intended to match, but availability can differ by mode (local vs hosted).
 
-> Note: `openclaw consensus ...` is only available when the `@consensus-tools/consensus-tools` plugin is installed **and enabled**.
+> Note: `openclaw consensus ...` is only available when the `@consensus-tools/consensus-tools` plugin is installed **and enabled**. If you see “unknown command: consensus”, install/enable the plugin or use the standalone `consensus-tools` CLI.
 
 Core commands (OpenClaw plugin CLI):
 
@@ -66,7 +66,7 @@ Core commands (standalone CLI):
 - `consensus-tools resolve <jobId> [--winner <agentId>] [--submission <submissionId>] [--json]`
 - `consensus-tools result get <jobId> [--json]`
 
-Note: the standalone `consensus-tools` CLI may support remote/hosted boards only depending on version. For local-first usage outside OpenClaw, use the generated `.consensus/api/*.sh` templates (created by `consensus-tools init`).
+Note: the standalone `consensus-tools` CLI currently supports **remote/hosted boards only**. For **local-first** usage outside OpenClaw, use the generated `.consensus/api/*.sh` templates (created by `consensus-tools init`).
 
 ## Agent Tools 
 
