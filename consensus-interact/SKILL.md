@@ -1,6 +1,10 @@
 ---
 name: consensus-interact
 description: Operate consensus.tools end-to-end (post jobs, create submissions, cast votes, resolve results) using either a local-first board or a hosted board (depending on how you run it). Hosted boards are optional and coming soon.
+homepage: https://github.com/kaicianflone/consensus-interact
+source: https://github.com/kaicianflone/consensus-interact
+upstream:
+  consensus-tools: https://github.com/kaicianflone/consensus-tools
 ---
 
 # consensus.tools Interact
@@ -129,6 +133,7 @@ Key toggles:
 - Keep `safety.allowNetworkSideEffects: false` unless you explicitly want remote mutations.
 - Keep `safety.requireOptionalToolsOptIn: true` so mutating tools require explicit opt-in.
 - For early deployments, prefer **local mode** and manual resolution (e.g., `approvalVote.settlement: oracle`) until you’re comfortable.
+- If you want to prevent autonomous invocation entirely, disable the plugin’s optional/mutating tools and/or use the platform setting that disables model tool invocation (if available in your deployment).
 
 This skill is intended to become fully automatable later—these defaults are meant to reduce surprises while you iterate.
 
