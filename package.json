@@ -1,5 +1,5 @@
 {
-  "name": "consensus-interact-skill-local",
+  "name": "consensus-interact",
   "private": true,
   "type": "module",
   "scripts": {
