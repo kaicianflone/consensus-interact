@@ -1,0 +1,51 @@
+name: Release PR
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Version bump type"
+        required: true
+        default: "patch"
+        type: choice
+        options: [patch, minor, major]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  prepare-release-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Bump version files
+        run: node scripts/bump-version.mjs "${{ github.event.inputs.bump }}"
+
+      - name: Validate
+        run: |
+          npm test
+          npm run ci:guardrails
+
+      - name: Capture version
+        id: ver
+        run: echo "version=$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: release ${{ steps.ver.outputs.version }}"
+          branch: "chore/release-${{ steps.ver.outputs.version }}"
+          title: "chore: release ${{ steps.ver.outputs.version }}"
+          body: |
+            Automated release prep.
+
+            - bumped `package.json`, `_meta.json`, `metadata.json`
+            - ran tests + CI guardrails
