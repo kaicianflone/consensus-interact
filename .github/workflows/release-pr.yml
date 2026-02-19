@@ -36,7 +36,7 @@ jobs:
 
       - name: Capture version
         id: ver
-        run: echo "version=$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+        run: echo "version=$(node -e \"console.log(JSON.parse(require('node:fs').readFileSync('package.json','utf8')).version)\")" >> $GITHUB_OUTPUT
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
