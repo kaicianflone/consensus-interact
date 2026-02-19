@@ -31,5 +31,5 @@ jobs:
         env:
           CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
         run: |
-          VERSION=$(node -e "console.log(JSON.parse(require('node:fs').readFileSync('package.json','utf8')).version)")
+          VERSION=$(node -e 'console.log(JSON.parse(require("node:fs").readFileSync("package.json","utf8")).version)')
           clawhub publish . --slug consensus-interact --name "consensus-interact" --version "$VERSION" --changelog "Automated publish from main"
