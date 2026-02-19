@@ -1,5 +1,5 @@
 {
-  "version": "1.0.6",
+  "version": "1.0.7",
   "organization": "Engineering",
   "date": "February 2026",
   "abstract": "Consensus.tools interaction skill for AI agents: post jobs, create submissions, cast votes, resolve outcomes, and fetch final results across local-first and hosted board modes.",
