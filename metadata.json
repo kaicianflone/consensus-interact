@@ -1,5 +1,5 @@
 {
-  "version": "1.0.7",
+  "version": "1.0.8",
   "organization": "Engineering",
   "date": "February 2026",
   "abstract": "Open-source @consensus-tools/consensus-tools skill for multi-LLM policy resolution: post jobs, collect submissions, cast votes, and resolve higher-quality decisions through customizable consensus logic gates. Local-first by default, with optional hosted consensus.tools connectivity.",
